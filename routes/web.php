@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 
 /*
@@ -33,6 +34,12 @@ Route::post('/category/update/{id}',[CategoryController::class,'update']);
 Route::get('/category/softdelete/{id}',[CategoryController::class,'softdelete']);
 Route::get('/category/restore/{id}',[CategoryController::class,'restore']);
 Route::get('/category/pdelete/{id}',[CategoryController::class,'pdelete']);
+
+
+
+/// Brand Route
+Route::get('/all/brand',[BrandController::class,'index'])->name('all.brand');
+Route::post('/add/brand',[BrandController::class,'store'])->name('store.brand');
 
 
 
