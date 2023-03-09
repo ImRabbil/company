@@ -40,6 +40,9 @@ Route::get('/category/pdelete/{id}',[CategoryController::class,'pdelete']);
 /// Brand Route
 Route::get('/all/brand',[BrandController::class,'index'])->name('all.brand');
 Route::post('/add/brand',[BrandController::class,'store'])->name('store.brand');
+Route::get('/brand/edit/{id}',[BrandController::class,'edit']);
+Route::post('/brand/update/{id}',[BrandController::class,'update']);
+Route::get('/brand/delete/{id}',[BrandController::class,'delete']);
 
 
 

@@ -29,12 +29,13 @@
                                 <tr>
                                     <th scope="row"> {{ $i++ }}</th>
                                     <td>{{ $brand->brand_name }}</td>
-                                    <td> <img src="{{ asset($brand->brand_image) }}" style="height:70px; width:100px;">
+                                    <td> <img src="{{ asset('image/brand/' . $brand->brand_image) }}"
+                                            style="height:70px; width:100px;">
                                     </td>
                                     <td>{{ $brand->created_at }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('brand/edit', $brand->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ url('brand/delete', $brand->id) }}" onclick="return confirm('Are You sure to Delete of Select Data')" class="btn btn-danger">Delete</a>
                                     </td>
 
                                 </tr>
