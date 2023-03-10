@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Multipic;
 use Carbon\Carbon;
+use Image;
 
 use Illuminate\Http\Request;
 
@@ -55,31 +57,29 @@ class BrandController extends Controller
             ]);
             // $brand = Brand::find($id);
             // $img_name = $brand->brand_image;
-                $old_image = $request->old_image;
-                $brand_image = $request->file('brand_image');
-                if($brand_image){
-                    $img_gen = hexdec(uniqid());
-                    $img_ext = strtolower($brand_image->getClientOriginalExtension());
-                    $img_name = $img_gen . '.' . $img_ext;
-                    $up_location = 'image/brand';
-                    $brand_image->move($up_location, $img_name);
-                    unlink('image/brand/' . $old_image);
-                
-    
+            $old_image = $request->old_image;
+            $brand_image = $request->file('brand_image');
+            if ($brand_image) {
+                $img_gen = hexdec(uniqid());
+                $img_ext = strtolower($brand_image->getClientOriginalExtension());
+                $img_name = $img_gen . '.' . $img_ext;
+                $up_location = 'image/brand';
+                $brand_image->move($up_location, $img_name);
+                unlink('image/brand/' . $old_image);
+
+
                 Brand::find($id)->update([
                     'brand_name' => $request->brand_name,
                     'brand_image' => $img_name,
                     'created_at' => Carbon::now()
                 ]);
+            } else {
+                Brand::find($id)->update([
+                    'brand_name' => $request->brand_name,
+                    'created_at' => Carbon::now()
+                ]);
+            }
 
-                }else{
-                    Brand::find($id)->update([
-                        'brand_name' => $request->brand_name,
-                        'created_at' => Carbon::now()
-                    ]);
-
-                }
-               
 
 
             return redirect()->route('all.brand');
@@ -87,15 +87,41 @@ class BrandController extends Controller
     }
 
 
-    public function delete($id){
+    public function delete($id)
+    {
         $image = Brand::find($id);
         $old_image = $image->brand_image;
-        unlink('image/brand/'.$old_image);
+        unlink('image/brand/' . $old_image);
 
 
         Brand::find($id)->delete();
         return redirect()->back();
+    }
 
 
+
+    public function Multi()
+    {
+        $multi = Multipic::all();
+        return view('admin.multi.index',compact('multi'));
+    }
+    public function mStore(Request $request)
+    {
+        $image = $request->file('image');
+        foreach( $image as $multi_img){
+            $name_gen = hexdec(uniqid()) . '.' . $multi_img->getClientOriginalExtension();
+        Image::make($multi_img)->resize(300, 200)->save('image/multi/' . $name_gen);
+        $last_img = 'image/multi/' . $name_gen;
+        Multipic::insert([
+            'image' => $last_img,
+            'created_at' => Carbon::now()
+
+
+        ]);
+
+        }
+        
+
+        return redirect()->back();
     }
 }

@@ -23,6 +23,9 @@
                     <x-nav-link href="{{ route('all.brand') }}">
                         Brand
                      </x-nav-link>
+                       <x-nav-link href="{{ route('all.multi') }}">
+                         MutliPicture
+                     </x-nav-link>
                 </div>
                 
                
