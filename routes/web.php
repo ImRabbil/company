@@ -61,7 +61,17 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
 
-        $users = User::all();
-        return view('dashboard', compact('users'));
+        // $users = User::all();
+
+
+        // $users = User::all();
+        // return view('dashboard', compact('users'));
+
+
+        //new project
+        return view('admin.index');
     })->name('dashboard');
 });
+
+//logout route
+Route::get('/user/logout',[BrandController::class,'logout'])->name('user.logout');

@@ -6,11 +6,18 @@ use App\Models\Brand;
 use App\Models\Multipic;
 use Carbon\Carbon;
 use Image;
-
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $brands = Brand::latest()->paginate(5);
@@ -103,25 +110,32 @@ class BrandController extends Controller
     public function Multi()
     {
         $multi = Multipic::all();
-        return view('admin.multi.index',compact('multi'));
+        return view('admin.multi.index', compact('multi'));
     }
     public function mStore(Request $request)
     {
         $image = $request->file('image');
-        foreach( $image as $multi_img){
+        foreach ($image as $multi_img) {
             $name_gen = hexdec(uniqid()) . '.' . $multi_img->getClientOriginalExtension();
-        Image::make($multi_img)->resize(300, 200)->save('image/multi/' . $name_gen);
-        $last_img = 'image/multi/' . $name_gen;
-        Multipic::insert([
-            'image' => $last_img,
-            'created_at' => Carbon::now()
+            Image::make($multi_img)->resize(300, 200)->save('image/multi/' . $name_gen);
+            $last_img = 'image/multi/' . $name_gen;
+            Multipic::insert([
+                'image' => $last_img,
+                'created_at' => Carbon::now()
 
 
-        ]);
-
+            ]);
         }
-        
+
 
         return redirect()->back();
+    }
+
+
+
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login')->with('success','User logout');
     }
 }
