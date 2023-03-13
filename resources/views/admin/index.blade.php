@@ -1,5 +1,4 @@
 @extends('admin.admin_master')
-//all page come to from admin_master page
 
 
 @section('admin')

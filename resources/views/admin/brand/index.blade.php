@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('All Category List') }}
-        </h2>
-    </x-slot>
+@extends('admin.admin_master')
+@section('admin')
     <div class="container">
         <div class="card-body">
             <div class="row">
@@ -17,7 +13,7 @@
                                 <th scope="col">SI No</th>
                                 <th scope="col">Brand_Name</th>
                                 <th scope="col">Brand_Image</th>
-                                <th scope="col">Created_At</th>
+                                {{-- <th scope="col">Created_At</th> --}}
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -32,7 +28,7 @@
                                     <td> <img src="{{ asset('image/brand/' . $brand->brand_image) }}"
                                             style="height:70px; width:100px;">
                                     </td>
-                                    <td>{{ $brand->created_at }}</td>
+                                    {{-- <td>{{ $brand->created_at }}</td> --}}
                                     <td>
                                         <a href="{{ url('brand/edit', $brand->id) }}" class="btn btn-info">Edit</a>
                                         <a href="{{ url('brand/delete', $brand->id) }}"
@@ -79,4 +75,4 @@
             <br>
         </div>
 
-</x-app-layout>
+@endsection

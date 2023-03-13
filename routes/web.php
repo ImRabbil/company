@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use Illuminate\Support\Facades\DB;
+
 
 
 /*
@@ -19,7 +21,8 @@ use App\Http\Controllers\BrandController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $brands = DB::table('brands')->get();
+        return view('home', compact('brands'));
 });
 
 // Route::get('/dataInsert', [HomeController::class, 'index'])->name('dataInsert');
@@ -49,6 +52,29 @@ Route::get('/brand/delete/{id}',[BrandController::class,'delete']);
 //// multi picture
 Route::get('/all/multi',[BrandController::class,'Multi'])->name('all.multi');
 Route::post('/add/multi',[BrandController::class,'mStore'])->name('store.multi');
+
+
+
+
+
+
+
+
+
+
+
+// slider route 
+Route::get('/all/slider',[HomeController::class,'Slider'])->name('home.slider');
+Route::get('/add/slider',[HomeController::class,'add_slider'])->name('add.slider');
+Route::post('/store/slider',[HomeController::class,'Slider_Store'])->name('store.slider');
+Route::get('/slider/edit/{id}',[HomeController::class,'edit']);
+Route::post('/slider/update/{id}',[HomeController::class,'update']);
+Route::get('/slider/delete/{id}',[HomeController::class,'delete']);
+
+
+
+
+
 
 
 
