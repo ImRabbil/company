@@ -127,8 +127,28 @@ class BrandController extends Controller
             ]);
         }
 
+        // return $image;
+
 
         return redirect()->back();
+    }
+
+    public function M_delete($id){
+        $image = Multipic::find($id);
+        $old_image = $image->image;
+        if(file_exists($old_image)){
+            unlink($old_image);
+            Multipic::find($id)->delete();
+
+        }else{
+            Multipic::find($id)->delete();
+        }
+       
+
+
+       
+        return redirect()->back();
+
     }
 
 
@@ -138,4 +158,12 @@ class BrandController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success','User logout');
     }
+
+
+    public function p_index(){
+        $multi = Multipic::all();
+        return view('fontend.portfolio',compact('multi'));
+    }
+
+
 }

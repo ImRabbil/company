@@ -13,11 +13,7 @@
                                 <input type="text" value="{{ $slider->title }}" name="title" class="form-control"
                                     id="exampleFormControlInput1">
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Description</label>
-                                <input type="text" value="{{ $slider->description }}" name="description"
-                                    class="form-control" id="exampleFormControlInput1" >
-                            </div> --}}
+                            
                             <div class="form-group mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">DesCription</label> <br>
                                 <textarea type="text" value="" name="description" class="form-control" id="exampleFormControlTextarea1"

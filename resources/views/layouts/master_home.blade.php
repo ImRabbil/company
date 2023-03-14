@@ -43,7 +43,9 @@
 <body>
 
     @include('layouts.body.header')
-    @include('layouts.body.slider')
+    @if(Route::is('home'))
+         @include('layouts.body.slider')
+    @endif
 
 
 
@@ -68,7 +70,7 @@
     <script src="{{ asset('fontend/assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('fontend/assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('fontend/assets/vendor/aos/aos.js') }}"></script>
-    {{ asset('fontend/') }}
+
     <!-- Template{{ asset('fontend/') }} Main JS File -->
     <script src="{{ asset('fontend/assets/js/main.js') }}"></script>
 

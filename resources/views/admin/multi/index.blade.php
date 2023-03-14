@@ -1,9 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Here all pictures of this project') }}
-        </h2>
-    </x-slot>
+@extends('admin.admin_master')
+
+@section('admin')
+
     <div class="container">
         <div class="card-body">
             <div class="row">
@@ -11,24 +9,18 @@
                     <div class="card">
                         {{-- <div class="card-header"> All Multi-Picture</div> --}}
                         <div class="card-group">
-                            @foreach($multi as $img)
-                            <div class="col-md-4 mt-5">
-                                <div class="card">
-                                    <img src="{{ asset($img->image) }}" alt="">
-
+                            @foreach ($multi as $img)
+                                <div class="col-md-4 mt-5">
+                                    <div class="card">
+                                        <img src="{{ asset($img->image) }}" alt="">
+                                        <a href="{{ url('multi/delete', $img->id) }}" onclick="return confirm('Are You sure to Delete of Select Data')"
+                                            class="btn btn-danger">Delete</a>
+                                    </div>
                                 </div>
-                            </div>
-
                             @endforeach
                         </div>
-
-
-
-
-
-
                     </div>
-                    
+
                 </div>
                 <div class="col-md-4">
                     <div class="card">
@@ -36,7 +28,7 @@
                         <div class="card-body">
                             <form action="{{ route('store.multi') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                               
+
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Multi_Image</label>
                                     <input type="file" multiple="" name="image[]" class="form-control"
@@ -60,4 +52,4 @@
             <br>
         </div>
 
-</x-app-layout>
+    @endsection
