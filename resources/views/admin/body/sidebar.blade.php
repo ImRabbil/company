@@ -41,6 +41,12 @@
                                 </a>
                             </li>
                             <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('team.about') }}">
+                                    <span class="nav-text">Team About</span>
+
+                                </a>
+                            </li>
+                            <li class="active">
                                 <a class="sidenav-item-link" href="{{ route('home.service') }}">
                                     <span class="nav-text">Home Services</span>
 
@@ -58,6 +64,7 @@
 
                                 </a>
                             </li>
+
 
 
 
@@ -82,8 +89,14 @@
                                 </a>
                             </li>
                             <li class="active">
-                                <a class="sidenav-item-link" href="">
-                                    <span class="nav-text">Home Brand</span>
+                                <a class="sidenav-item-link" href="{{ route('contact.msg') }}">
+                                    <span class="nav-text">Contact Message</span>
+
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('about_testimonials') }}">
+                                    <span class="nav-text">Testimonials</span>
 
                                 </a>
                             </li>

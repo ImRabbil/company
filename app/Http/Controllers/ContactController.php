@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Contact;
+use App\Models\ContactForm;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -31,6 +32,24 @@ class ContactController extends Controller
     {
         $contact = Contact::latest()->first();
         return view('fontend.Fon_Contact_View',compact('contact'));
+    }
+
+    public function Contact_Form(Request $request){
+        ContactForm::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'massege' => $request->massege,
+            'created_at' => Carbon::now()
+        ]);
+        return redirect()->route('fontend.contact')->with('update', 'Content has been updated successfully!');
+
+    }
+
+    public function Contact_Msg()
+    {
+        $contacts = ContactForm::latest()->get();
+        return view('fontend.contact_msg',compact('contacts'));
     }
 
 }

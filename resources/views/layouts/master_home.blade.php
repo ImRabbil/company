@@ -24,6 +24,7 @@
     <link href="{{ asset('fontend/assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('fontend/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/aos/aos.css') }}" rel="stylesheet">

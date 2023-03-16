@@ -10,6 +10,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AboutController;
 use App\Models\Multipic;
 use App\Models\Contact;
+use App\Models\TeamAbout;
 use Illuminate\Support\Facades\DB;
 
 
@@ -30,6 +31,7 @@ Route::get('/', function () {
     $about = DB::table('abouts')->first();
     $service = DB::table('services')->get();
     $multi = Multipic::all();
+    
 
     return view('home', compact('brands', 'about','service','multi'));
 })->name('home');
@@ -82,13 +84,34 @@ Route::post('/slider/update/{id}', [HomeController::class, 'update']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'delete']);
 
 
-//all about route here..........................................
+//all  adimn about route here..........................................
 Route::get('/all/about', [AboutController::class, 'About'])->name('home.about');
 Route::get('/add/about', [AboutController::class, 'add_about'])->name('add.about');
 Route::post('/store/about', [AboutController::class, 'About_Store'])->name('store.about');
 Route::get('/about/edit/{id}', [AboutController::class, 'edit']);
 Route::post('/about/update/{id}', [AboutController::class, 'update']);
 Route::get('/about/delete/{id}', [AboutController::class, 'delete']);
+Route::get('/about/testimonials', [AboutController::class, 'testimonials'])->name('about_testimonials');
+Route::post('/store/team-testimonials', [AboutController::class, 'Team_Testimonials_Store'])->name('store_team_testimonials');
+
+
+
+
+////// team about route here=====================
+Route::get('/team/about', [AboutController::class, 'TeamAbout'])->name('team.about');
+Route::post('/store/team-about', [AboutController::class, 'Team_About_Store'])->name('store_team_about');
+
+
+///all fontend about route here=====================================
+
+Route::get('/about/pages', [AboutController::class, 'Fontend_About'])->name('fontend.about.pages');
+Route::get('/about/pages/team', [AboutController::class, 'Fontend_About_team'])->name('fontend.about.team');
+Route::get('/about/pages/testimonials', [AboutController::class, 'Fontend_About_team_testimonial'])->name('fontend.about.testimonials');
+Route::get('/about/pages/testimonials/{id}', [AboutController::class, 'About_team_testimonial'])->name('edit.testimonials');
+Route::post('/update/team-testimonial/{id}', [AboutController::class, 'testimonial_Update'])->name('update_store_test');
+
+
+
 
 
 
@@ -132,8 +155,12 @@ Route::get('/add/contact', [ContactController::class, 'Add_Contact'])->name('add
 Route::post('/store/contact', [ContactController::class, 'Contact_Store'])->name('store.contact');
 
 
+
 /// fontend contact route here=====================================
 Route::get('fon/contact', [ContactController::class, 'Fon_Contact_View'])->name('fontend.contact');
+Route::post('contact/form', [ContactController::class, 'Contact_Form'])->name('contact.form');
+Route::get('contact/msg', [ContactController::class, 'Contact_Msg'])->name('contact.msg');
+
 
 
 
