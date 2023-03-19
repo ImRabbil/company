@@ -24,6 +24,7 @@
     <link href="{{ asset('fontend/assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    
     <link href="{{ asset('fontend/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('fontend/assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
@@ -32,6 +33,7 @@
 
     <!-- Templat{{ asset('fontend/') }}e Main CSS File -->
     <link href="{{ asset('fontend/assets/css/style.css') }}" rel="stylesheet">
+    
 
     <!-- =======================================================
   * Template Name: Company - v2.1.0
@@ -71,10 +73,15 @@
     <script src="{{ asset('fontend/assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('fontend/assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('fontend/assets/vendor/aos/aos.js') }}"></script>
+    
 
     <!-- Template{{ asset('fontend/') }} Main JS File -->
     <script src="{{ asset('fontend/assets/js/main.js') }}"></script>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+  $('#textarea').summernote();
+});
+</script>
 </body>
 
 </html>

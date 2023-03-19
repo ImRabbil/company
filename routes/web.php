@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BrandController;
@@ -120,13 +121,28 @@ Route::post('/update/team-testimonial/{id}', [AboutController::class, 'testimoni
 
 
 
-// all services route in here-------------------------------------------------------------
+// all admin services route in here-------------------------------------------------------------
 Route::get('/all/service', [ServiceController::class, 'Service'])->name('home.service');
 Route::get('/add/service', [ServiceController::class, 'Add_Service'])->name('add.service');
 Route::post('/store/service', [ServiceController::class, 'Service_Store'])->name('store.service');
 Route::get('/service/edit/{id}', [ServiceController::class, 'edit']);
 Route::post('/service/update/{id}', [ServiceController::class, 'update']);
 Route::get('/service/delete/{id}', [ServiceController::class, 'delete']);
+
+Route::get('/all/features', [ServiceController::class, 'Features'])->name('all.features');
+Route::post('/store/features', [ServiceController::class, 'Feature_Store'])->name('feature_store');
+// Route::get('/edit/feature/{id}', [AboutController::class, 'Edit_feature'])->name('edit.feature');
+
+Route::post('/update/features/{id}', [ServiceController::class, 'Feature_Update'])->name('update_feature');
+
+
+
+
+
+
+//fontend service route
+Route::get('/service', [ServiceController::class, 'F_Service'])->name('service');
+
 
 
 
@@ -160,6 +176,22 @@ Route::post('/store/contact', [ContactController::class, 'Contact_Store'])->name
 Route::get('fon/contact', [ContactController::class, 'Fon_Contact_View'])->name('fontend.contact');
 Route::post('contact/form', [ContactController::class, 'Contact_Form'])->name('contact.form');
 Route::get('contact/msg', [ContactController::class, 'Contact_Msg'])->name('contact.msg');
+
+
+/// blog fontend route here========================
+Route::get('blog', [BlogController::class, 'blog_View'])->name('blog');
+Route::get('single-blog', [BlogController::class, 'single_blog_View'])->name('details');
+
+
+
+
+
+/// blog admin route here========================
+Route::get('admin/blog', [BlogController::class, 'admin_blog_View'])->name('admin_blog');
+Route::post('/store/blog', [BlogController::class, 'blog_Store'])->name('store.blog');
+
+
+
 
 
 

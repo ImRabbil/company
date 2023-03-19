@@ -64,6 +64,12 @@
 
                                 </a>
                             </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('all.features') }}">
+                                    <span class="nav-text">Services Features</span>
+
+                                </a>
+                            </li>
 
 
 
@@ -108,13 +114,14 @@
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                         aria-expanded="false" aria-controls="charts">
                         <i class="mdi mdi-chart-pie"></i>
-                        <span class="nav-text">Charts</span> <b class="caret"></b>
+                        <span class="nav-text">Blog Pages</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse" id="charts" data-parent="#sidebar-menu">
                         <div class="sub-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="chartjs.html">
-                                    <span class="nav-text">ChartJS</span>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('admin_blog') }}">
+                                    <span class="nav-text">Admin Blog</span>
+
                                 </a>
                             </li>
                         </div>

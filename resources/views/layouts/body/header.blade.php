@@ -2,7 +2,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html"><span>HSB</span>LCO</a></h1>
+      <h1 class="logo mr-auto"><a href="{{ url('/') }}"><span>HSB</span>LCO</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -18,10 +18,10 @@
             </ul>
           </li>
 
-          <li><a href="#">Services</a></li>
+          <li><a href="{{ route('service') }}">Services</a></li>
           <li><a href="{{ route('profolio') }}">Portfolio</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Blog</a></li>
+         
+          <li><a href="{{ route('blog') }}">Blog</a></li>
           <li><a href="{{ route('fontend.contact') }}">Contact</a></li>
 
         </ul>

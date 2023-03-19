@@ -22,11 +22,7 @@ class HomeController extends Controller
     }
 
     public function Slider_Store(Request $request){
-        $validated = $request->validate([
-            'title' => 'required|unique:sliders|max:255',
-            'description' => 'required',
-            'image' => 'required',
-        ]);
+        
 
         $image = $request->file('image');
         $img_gen = hexdec(uniqid());

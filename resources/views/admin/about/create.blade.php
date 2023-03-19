@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Long Description</label>
-                    <textarea class="form-control" name="long_description" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <textarea id="textarea" class="form-control" name="long_description" id="exampleFormControlTextarea1" rows="3" required></textarea>
                 </div>
 
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">

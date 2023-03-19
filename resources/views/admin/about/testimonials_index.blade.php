@@ -44,9 +44,9 @@
                                     <td width="15%">
                                     {{-- <a href="{{ url('about/edit', $row->id) }}" class="btn btn-info">Edit</a> --}}
 
-                                    <a href="{{ url('edit.testimonials', $row->id) }}" type="button" class="btn btn-info" data-toggle="modal" data-target="#EditTeam{{ $row->id }}">
-                                        Edit
-                                    </a>
+    <a href="{{ url('edit.testimonials', $row->id) }}" type="button" class="btn btn-info" data-toggle="modal" data-target="#EditTeam{{ $row->id }}">
+        Edit
+    </a>
 
 
                                     {{-- <a href="{{ url('about/delete', $row->id) }}"
